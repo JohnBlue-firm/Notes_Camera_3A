@@ -71,7 +71,9 @@ print(f"Sharpness measure (Laplacian variance): {sharpness}")
 |Subject tracking|Struggles with moving subjects|Better at tracking moving subjects|
 |Complexity|Simple|Complex|
 |Cost|Inexpensive|Expensive|
+
 ![AF](/AF.jpeg)
+
 https://steemit.com/photography/@apteacher/digital-photography-focus-settings
 
 ***Auto White Balance (AWB):*** Adjusts color temperature to create a natural-looking image. AWB algorithms analyze the color cast in a scene and compensate accordingly. There are some classification about (auto) white balance:
