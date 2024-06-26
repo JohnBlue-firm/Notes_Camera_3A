@@ -1,26 +1,3 @@
-
-# Side project object
-- A demonstartion of concurrency via pthread.
-- Comparsion among design with and without concurrency based on proccess time.
-
-# Comparison result
-||thread number|CPU time used|Real-time elapsed|
-| :---: | :---: | :---: | :---: |
-|without concurrency|only main|0.001935 seconds|0.016363 seconds|
-|with concurrency|1+1+1+1|0.004293 seconds|0.006486 seconds|
-||1+2+2+1|0.004239 seconds|0.004039 seconds|
-||1+3+3+1|0.004596 seconds|0.003946 seconds|
-
-hint:
-- **CPU time used** is the total CPU bound period.
-- **Real-time elapsed** is the period the whole proccess have been through.
-- **The sleep function** in C suspends thread, but will not consume CPU time.
-- The clock function un C often used to measures CPU time used by the program. It counts the number of clock ticks used by the CPU to execute the program.
-- Other functions like gettimeofday, clock_gettime, or time can provide real time stamp including the span in sleep and I/O bound.
-
-\
-
-
 # Color coordinate
 ***RGB (Red, Green, Blue):*** This is the most common color space used in digital images and displays. It uses 3 coordinates (one for each red, green, and blue channel) to represent a color. The value of each coordinate typically ranges from 0 (no intensity) to 255 (maximum intensity).
 ***HSV (Hue, Saturation, Value):*** This color space represents color based on its hue (think of the color itself like red, green, blue, etc.), saturation (how intense or colorful it is), and value (brightness). It also uses 3 coordinates, but the interpretation is different from RGB.
