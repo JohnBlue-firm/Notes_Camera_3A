@@ -1,20 +1,23 @@
 # Color coordinate
-***RGB (Red, Green, Blue):*** This is the most common color space used in digital images and displays. It uses 3 coordinates (one for each red, green, and blue channel) to represent a color. The value of each coordinate typically ranges from 0 (no intensity) to 255 (maximum intensity).
-***HSV (Hue, Saturation, Value):*** This color space represents color based on its hue (think of the color itself like red, green, blue, etc.), saturation (how intense or colorful it is), and value (brightness). It also uses 3 coordinates, but the interpretation is different from RGB.
-***LAB (Lightness, A, B):*** This color space separates lightness information from color information. It uses 3 coordinates: L for lightness (0 for black, 100 for white), ***A*** for ***green-red***, and ***B*** for ***blue-yellow***.
+***RGB (Red, Green, Blue):*** \
+This is the most common color space used in digital images and displays. It uses 3 coordinates (one for each red, green, and blue channel) to represent a color. The value of each coordinate typically ranges from 0 (no intensity) to 255 (maximum intensity). \
+***HSV (Hue, Saturation, Value):*** \
+This color space represents color based on its hue (think of the color itself like red, green, blue, etc.), saturation (how intense or colorful it is), and value (brightness). It also uses 3 coordinates, but the interpretation is different from RGB. \
+***LAB (Lightness, A, B):*** \
+This color space separates lightness information from color information. It uses 3 coordinates: L for lightness (0 for black, 100 for white), ***A*** for ***green-red***, and ***B*** for ***blue-yellow***. \
 
 # Common camera terminology
-***Exposure:*** This define the amount of light entering the camera. ***Exposure value*** indicates the brightness of the image, zero means normal exposure.
-***White balance:*** White balance refers to the process of adjusting the color appearance in an image to ensure that white objects appear truly white (under human perspective) under the specific lighting conditions the image was captured in.
-***Color temperature:*** Color temperature is a way to measure the perceived "warmth" or "coolness" of a light source. It's typically measured in Kelvin (K). It is a color theory related to human experience about color hue.
-***Contrast:*** Contrast refers to the difference in brightness or color between objects in an image. High contrast images have well-defined details and separation between light and dark areas. Low contrast images appear flat and lack definition.
-***Sharpness:*** Sharpness refers to the perceived clarity and crispness of details in an image. Sharp images have well-defined edges and visible details, while blurry images lack definition and appear hazy.
+***Exposure:*** This define the amount of light entering the camera. ***Exposure value*** indicates the brightness of the image, zero means normal exposure. \
+***White balance:*** White balance refers to the process of adjusting the color appearance in an image to ensure that white objects appear truly white (under human perspective) under the specific lighting conditions the image was captured in. \
+***Color temperature:*** Color temperature is a way to measure the perceived "warmth" or "coolness" of a light source. It's typically measured in Kelvin (K). It is a color theory related to human experience about color hue. \
+***Contrast:*** Contrast refers to the difference in brightness or color between objects in an image. High contrast images have well-defined details and separation between light and dark areas. Low contrast images appear flat and lack definition. \
+***Sharpness:*** Sharpness refers to the perceived clarity and crispness of details in an image. Sharp images have well-defined edges and visible details, while blurry images lack definition and appear hazy. \
 ![Color Temperature](/ColorTemperature.jpg)
 
 # Common key factors in camera control
-***Aperture:***  The opening of the lens through which light enters the camera. It's often represented as a fraction (f-number) like f/1.8, f/5.6, etc. A lower f-number indicates a wider aperture opening.
-***Shutter speed (1 / Exposure Time):*** The duration for which the camera's shutter remains open, allowing light to reach the sensor. It's typically measured in fractions of a second (e.g., 1/125s, 1/2s) or many seconds.
-***Camera ISO sensitivity (sensitivity of negative film / sensor):*** The sensor's sensitivity to light. A higher ISO setting makes the sensor more sensitive to light, allowing you to capture images in low-light conditions without needing a slower shutter speed or wider aperture.
+***Aperture:***  The opening of the lens through which light enters the camera. It's often represented as a fraction (f-number) like f/1.8, f/5.6, etc. A lower f-number indicates a wider aperture opening. \
+***Shutter speed (1 / Exposure Time):*** The duration for which the camera's shutter remains open, allowing light to reach the sensor. It's typically measured in fractions of a second (e.g., 1/125s, 1/2s) or many seconds. \
+***Camera ISO sensitivity (sensitivity of negative film / sensor):*** The sensor's sensitivity to light. A higher ISO setting makes the sensor more sensitive to light, allowing you to capture images in low-light conditions without needing a slower shutter speed or wider aperture. \
 
 # Camera (3A) Tuning
 ***Camera tuning***, also known as ***Camera 3A tuning***, is a process to adjusting the parameters of Camera to optimize Camera’s 3A abilities, or to pretend the user preferences.
@@ -25,9 +28,9 @@
 Exposure Value = log2(Aperture^2 * Exposure Time)
 Exposure Value = mean(image gray value)
 ```
-But in real situation, AE algorithm will also consider about Metering Mode (ex: center-weighted, spot metering), ISO Sensitivity, and other special situation (ex: high contrast environment).
-***Auto Focus (AF):*** When the camera focus is adjustable, we have to apply AF to ensures that the subject is sharply focused. The AF algorithm will involves distance measurement, lens movement control, and focus confirmation. Here are mainly two approaches.
-* ***Contrast-based AF:*** Finds areas of high contrast to determine focus. The camera will need to keep capturing image and examining the contrast value (ex: sharpness, edge strength) until reach the highest value.
+But in real situation, AE algorithm will also consider about Metering Mode (ex: center-weighted, spot metering), ISO Sensitivity, and other special situation (ex: high contrast environment). \
+***Auto Focus (AF):*** When the camera focus is adjustable, we have to apply AF to ensures that the subject is sharply focused. The AF algorithm will involves distance measurement, lens movement control, and focus confirmation. Here are mainly two approaches. \
+* ***Contrast-based AF:*** Finds areas of high contrast to determine focus. The camera will need to keep capturing image and examining the contrast value (ex: sharpness, edge strength) until reach the highest value. \
 ```python
 import cv2
 
@@ -62,7 +65,7 @@ sharpness = measure_sharpness(image)
 
 print(f"Sharpness measure (Laplacian variance): {sharpness}")
 ```
-* ***Phase-detect AF:*** Measures phase shift of light rays from the subject to achieve precise focus. A flash will be emitted to target and reflects from it, and the AF sensor will sensing the difference among the reflections on multi-sensors and trigger the movements of lens. 
+* ***Phase-detect AF:*** Measures phase shift of light rays from the subject to achieve precise focus. A flash will be emitted to target and reflects from it, and the AF sensor will sensing the difference among the reflections on multi-sensors and trigger the movements of lens. \
 
 |Feature|Contrast-based AF|Phase-detection AF|
 | :---: | :---: | :---: |
